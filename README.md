@@ -129,6 +129,8 @@ Where licensing information is unclear, the project should initially be referenc
 
 Please include licensing information whenever submitting existing work.
 
+DS Defense currently does not apply a single repository-wide license. Individual contributions may have different licensing or permission terms.
+
 ## For original authors and maintainers
 
 If you found this repository because your work was referenced here:
