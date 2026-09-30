@@ -1,0 +1,245 @@
+# `templates/metadata.yml`
+
+```yaml
+# DS Defense contribution/catalog metadata
+#
+# This file records provenance and maintenance information.
+# It is not itself proof of copyright ownership or legal permission.
+#
+# Fields marked REQUIRED should normally be completed.
+# Unknown information should be written explicitly rather than guessed.
+
+schema_version: 1
+
+# REQUIRED
+# Stable identifier used for the catalog or contribution directory.
+# Recommended format: lowercase words separated by hyphens.
+id: example-project
+
+# REQUIRED
+title: Example Project
+
+# What kind of work is this?
+# Multiple values are allowed.
+#
+# Suggested values:
+#   code
+#   dataset
+#   benchmark
+#   model
+#   research
+#   documentation
+#   tool
+#   configuration
+#   mixed
+#   other
+kind:
+  - code
+
+# General project status.
+#
+# Suggested values:
+#   active
+#   inactive
+#   archived
+#   experimental
+#   unknown
+status: unknown
+
+# How DS Defense represents this project.
+#
+# mode:
+#   external  - catalog/reference only
+#   hosted    - material is hosted in DS Defense
+#   mixed     - some material is hosted and some remains external
+integration:
+  mode: external
+
+  # Optional description of DS Defense's relationship to upstream.
+  #
+  # Suggested values:
+  #   authoritative
+  #   integration
+  #   downstream
+  #   mirror
+  #   snapshot
+  #   independent-fork
+  #   reference-only
+  relationship: reference-only
+
+# Original or authoritative upstream locations, where known.
+upstream:
+  repository: null
+  homepage: null
+  documentation: null
+  publication: null
+
+# Original authors, where known.
+#
+# Do not guess identities.
+authors: []
+# Example:
+# authors:
+#   - name: Example Author
+#     github: example-author
+#     role: original-author
+
+# Current maintainers, where known.
+maintainers: []
+# Example:
+# maintainers:
+#   - name: Example Maintainer
+#     github: example-maintainer
+
+# Licensing information.
+#
+# status:
+#   known
+#   unclear
+#   no-license-declared
+#   permission-based
+#   pending
+#
+# `spdx` should contain an SPDX identifier when applicable,
+# for example:
+#   MIT
+#   Apache-2.0
+#   GPL-3.0-only
+#
+# Do not fill this field by guessing.
+license:
+  status: unclear
+  spdx: null
+
+  # Link to the authoritative license statement, if available.
+  source: null
+
+  # Additional context if needed.
+  notes: null
+
+# If DS Defense hosts material from this project, document why hosting
+# is believed to be permitted.
+#
+# status:
+#   not-applicable
+#   confirmed
+#   unclear
+#   pending
+#
+# basis examples:
+#   original-author-submission
+#   authorized-maintainer-submission
+#   open-source-license
+#   explicit-permission
+#   original-ds-defense-work
+hosting:
+  status: not-applicable
+  basis: null
+  evidence: null
+
+# Contributor/contact coordination.
+#
+# Suggested status values:
+#   not-contacted
+#   contacted
+#   confirmed
+#   declined
+#   maintainer-unknown
+contact:
+  status: not-contacted
+  notes: null
+
+# Optional DS Defense-specific information.
+ds_defense:
+  # Path inside this repository if hosted.
+  path: null
+
+  # GitHub username of the person who initially added the record.
+  added_by: null
+
+  # Pull Request number or URL, if applicable.
+  added_via: null
+
+  notes: null
+```
+
+---
+
+# `.github/CODEOWNERS`
+
+```text
+# DS Defense CODEOWNERS
+#
+# CODEOWNERS identifies review responsibility.
+# It does NOT imply copyright ownership or original authorship.
+#
+# This file assumes the GitHub organization has a team named:
+#
+#   @ds-defense/core-maintainers
+#
+# If that team does not exist yet, either create it or replace the
+# entries below with the GitHub username of the current repository
+# maintainer.
+#
+# More specific rules should be added BELOW the general rules.
+# In CODEOWNERS, later matching rules take precedence.
+
+
+# ------------------------------------------------------------
+# Repository-wide infrastructure
+# ------------------------------------------------------------
+
+/README.md                          @ds-defense/core-maintainers
+/CONTRIBUTING.md                    @ds-defense/core-maintainers
+/GOVERNANCE.md                      @ds-defense/core-maintainers
+/SOURCES.md                         @ds-defense/core-maintainers
+
+/.github/                           @ds-defense/core-maintainers
+/templates/                         @ds-defense/core-maintainers
+/docs/                              @ds-defense/core-maintainers
+/rfcs/                              @ds-defense/core-maintainers
+
+
+# ------------------------------------------------------------
+# Catalog
+# ------------------------------------------------------------
+#
+# Core maintainers are responsible for the catalog infrastructure.
+# Individual catalog entries may later be assigned to project
+# maintainers using more specific rules below.
+
+/catalog/                           @ds-defense/core-maintainers
+
+
+# ------------------------------------------------------------
+# Contributions
+# ------------------------------------------------------------
+#
+# Until a contribution has its own maintainer, repository maintainers
+# provide the default review route.
+#
+# Add project-specific rules BELOW this rule whenever an appropriate
+# maintainer is identified.
+
+/contributions/                     @ds-defense/core-maintainers
+
+
+# ------------------------------------------------------------
+# Project-specific ownership
+# ------------------------------------------------------------
+#
+# Examples:
+#
+# /catalog/example-project/              @example-maintainer
+# /contributions/example-project/        @example-maintainer
+#
+# Multiple maintainers are allowed:
+#
+# /contributions/example-project/        @alice @bob
+#
+# Organization teams may also be used:
+#
+# /contributions/example-project/        @ds-defense/example-project-maintainers
+#
+# Add real project ownership rules below this line.
+```
